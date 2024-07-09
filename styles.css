@@ -1,0 +1,109 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+}
+
+nav {
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.container {
+    padding-top: 60px; /* Espaço para o menu fixo no topo */
+    width: 90%; /* Ajuste para melhor visualização da tabela */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px; /* Adicionando margem para evitar sobreposição com a nav */
+}
+
+table {
+    width: 100%; /* Tabela ocupa toda a largura do container */
+    border-collapse: collapse; /* Colapsar bordas para um design limpo */
+}
+
+table, th, td {
+    border: 1px solid #fff; /* Bordas brancas para visibilidade */
+    padding: 8px; /* Espaçamento interno para conteúdo das células */
+}
+
+th {
+    background-color: #555; /* Fundo mais escuro para cabeçalhos */
+}
+
+tr:nth-child(even) {
+    background-color: #222; /* Zebra striping para linhas */
+}
+
+.info {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.character, .item-slot {
+    margin: 5px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.character {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-slot {
+    width: 250px;
+    text-align: center;
+}
+
+select {
+    padding: 10px;
+    border-radius: 5px;
+    background: #333;
+    border: 1px solid #555;
+    color: #fff;
+    width: 300px;
+    margin-top: 20px;
+}

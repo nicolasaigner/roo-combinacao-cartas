@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Cartas para MVPs e Eventos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Seleção de Cartas</a></li>
+            <li><a href="tabela.html">Tabela de Combinações</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <select id="mvpSelect">
+            <option value="">Selecione um MVP ou Evento</option>
+        </select>
+        <div class="info">
+            <div class="column left">
+                <div class="item-slot" id="chapeu">Chapéu</div>
+                <div class="item-slot" id="boca">Boca</div>
+                <div class="item-slot" id="arma">Arma</div>
+                <div class="item-slot" id="capa">Capa</div>
+                <div class="item-slot" id="acessorio1">Acessório 1</div>
+            </div>
+            <div class="character">
+                <!-- Placeholder SVG -->
+                <svg width="100px" height="100px">
+                    <circle cx="50" cy="50" r="40" fill="lightblue" />
+                    <circle cx="50" cy="40" r="8" fill="white" />
+                    <circle cx="40" cy="60" r="5" fill="white" />
+                    <circle cx="60" cy="60" r="5" fill="white" />
+                </svg>
+            </div>
+            <div class="column right">
+                <div class="item-slot" id="face">Face</div>
+                <div class="item-slot" id="armadura">Armadura</div>
+                <div class="item-slot" id="maoSecundaria">Mão Secundária</div>
+                <div class="item-slot" id="calcado">Calçado</div>
+                <div class="item-slot" id="acessorio2">Acessório 2</div>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mvpSelect = document.getElementById('mvpSelect');
+            data.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item.nome;
+                option.textContent = `${item.evento}: ${item.nome}`;
+                mvpSelect.appendChild(option);
+            });
+
+            mvpSelect.addEventListener('change', function() {
+                const selectedItem = data.find(item => item.nome === this.value);
+                if (selectedItem) {
+                    document.getElementById('chapeu').textContent = 'Chapéu: ' + (selectedItem.chapéu || 'N/A');
+                    document.getElementById('boca').textContent = 'Boca: ' + (selectedItem.boca || 'N/A');
+                    document.getElementById('arma').textContent = 'Arma: ' + (selectedItem.arma || 'N/A');
+                    document.getElementById('capa').textContent = 'Capa: ' + (selectedItem.capa || 'N/A');
+                    document.getElementById('acessorio1').textContent = 'Acessório 1: ' + (selectedItem.acessorio1 || 'N/A');
+                    document.getElementById('face').textContent = 'Face: ' + (selectedItem.face || 'N/A');
+                    document.getElementById('armadura').textContent = 'Armadura: ' + (selectedItem.armadura || 'N/A');
+                    document.getElementById('maoSecundaria').textContent = 'Mão Secundária: ' + (selectedItem.maoSecundaria || 'N/A');
+                    document.getElementById('calcado').textContent = 'Calçado: ' + (selectedItem.calcado || 'N/A');
+                    document.getElementById('acessorio2').textContent = 'Acessório 2: ' + (selectedItem.acessorio2 || 'N/A');
+                } else {
+                    document.querySelectorAll('.item-slot').forEach(slot => slot.textContent = 'N/A');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
