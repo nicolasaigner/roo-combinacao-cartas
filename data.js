@@ -523,6 +523,21 @@ const data = [
         "acessorio1": "",
         "acessorio2": "",
         "costas": ""
+    },
+    {
+        "nome": "Ódio",
+        "evento": "Juperos",
+        "chapeu": "",
+        "face": "",
+        "boca": "",
+        "armadura": "",
+        "arma": "Creamy (Éter) + Escorpião",
+        "maoSecundaria": "",
+        "capa": "",
+        "calcado": "",
+        "acessorio1": "",
+        "acessorio2": "",
+        "costas": ""
     }
 ];
 
