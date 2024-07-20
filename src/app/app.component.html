@@ -266,7 +266,44 @@
     </mat-tab>
     <mat-tab label="Cinto de Cartas">
       <ng-template matTabContent>
-        Content 3 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+
+        <mat-card>
+          <mat-card-title>
+            <h3>Agrupamentos de monstros por raça e tamanho</h3>
+          </mat-card-title>
+          <mat-card-content>
+            <mat-form-field class="full-width">
+              <input matInput (keyup)="applyFilterBelt($event)" placeholder="Ex. Set 1, AnjoMédio, Angeling">
+            </mat-form-field>
+            <table mat-table [dataSource]="dataSourceCardBelt">
+
+              <!-- Set Column -->
+              <ng-container matColumnDef="set">
+                <th mat-header-cell *matHeaderCellDef> Combinação </th>
+                <td mat-cell *matCellDef="let element"> {{element.set}} </td>
+              </ng-container>
+
+              <!-- Race and Size Column -->
+              <ng-container matColumnDef="raceAndSize">
+                <th mat-header-cell *matHeaderCellDef> Raça e Tamanho </th>
+                <td mat-cell *matCellDef="let element"> {{element.raceAndSize}} </td>
+              </ng-container>
+
+              <!-- Monsters Column -->
+              <ng-container matColumnDef="monsters">
+                <th mat-header-cell *matHeaderCellDef> MVPs/Eventos </th>
+                <td mat-cell *matCellDef="let element"> {{element.monsters}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            Total de monstros abrangidos pelos 15 sets: 34
+          </mat-card-content>
+        </mat-card>
+        <!-- monster-table.component.html -->
+
 
       </ng-template>
     </mat-tab>
