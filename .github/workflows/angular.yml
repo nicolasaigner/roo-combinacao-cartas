@@ -1,13 +1,11 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-name: Angular Build
+name: Angular Build and Deploy
 
-# {1}
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main" # change to the branch you wish to deploy from
 
 permissions:
   contents: read
@@ -15,48 +13,8 @@ permissions:
   id-token: write
 
 jobs:
-  angular:
-    name: Angular Build
+  deploy:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-      # {2}
-      - name: Checkout the source code
-        uses: actions/checkout@v3
-
-      # {3}
-      - name: Setup Node.js 20
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-
-      # {4}
-      - name: Install dependencies
-        run: npm ci
-      # {5}
-      # - name: Run tests
-        # run: npm run test:ci
-      # {6}
-      - name: Build
-        run: npm run build
-
-      - name: Deploy Angular to GitHub Pages
+      - id: build-publish
         uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
-        with:
-          path: dist/card-combination-site
-          build_command: npm run build -- --base-href=/card-combination-site/
-#        with:
-#          path: dist/${{ github.event.repository.name }}
-#          build_command: npm run build -- --base-href=/${{ github.event.repository.name }}/ # default
-
-      # - name: Deploy to gh pages
-      #   run: |
-      #     npx angular-cli-ghpages --dir=dist/card-combination-site
-      #   env:
-      #     CI: true
-      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}

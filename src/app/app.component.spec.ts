@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'card-combination-site' title`, () => {
+  it(`should have the 'roo-combinacao-cartas' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('card-combination-site');
+    expect(app.title).toEqual('roo-combinacao-cartas');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, card-combination-site');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, roo-combinacao-cartas');
   });
 });
