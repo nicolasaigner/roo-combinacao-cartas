@@ -1,0 +1,26 @@
+<form class="form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Comece a escrever o nome de um MVP ou clique para selecionar</mat-label>
+    <input matInput
+           aria-label="State"
+           [matAutocomplete]="auto"
+           [formControl]="stateCtrl">
+    <mat-autocomplete #auto="matAutocomplete">
+      @for (state of filteredStates | async; track state) {
+        <mat-option [value]="state.name">
+          <img alt="" class="example-option-img" [src]="state.thumbnailUrl" height="25">
+          <span>{{state.name}}</span> | <small>{{state.race}}/{{state.size}}/{{state.element}}</small>
+        </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+
+<!--  <mat-slide-toggle-->
+<!--    [checked]="stateCtrl.disabled"-->
+<!--    (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">-->
+<!--    Disable Input?-->
+<!--  </mat-slide-toggle>-->
+</form>
+
+<!--Control value: {{stateCtrl.value || 'empty'}}-->
+

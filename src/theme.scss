@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$dark-theme: mat.m2-define-dark-theme((
+  color: (
+    primary: mat.m2-define-palette(mat.$m2-blue-grey-palette),
+    accent: mat.m2-define-palette(mat.$m2-blue-grey-palette),
+    warn: mat.m2-define-palette(mat.$m2-blue-grey-palette),
+  ),
+));
+
+.darkMode {
+  @include mat.core-theme($dark-theme);
+  @include mat.button-theme($dark-theme);
+  @include mat.all-component-colors($dark-theme);
+}
