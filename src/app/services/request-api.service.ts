@@ -3,13 +3,14 @@ import {HttpClient} from "@angular/common/http";
 import {MVP} from "../components/card-input/card-input.component";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestApiService {
 
-  apiUrl: string = `http://localhost:3000`;
+  apiUrl: string = environment.apiUrl;
 
   constructor(private httpService: HttpClient) { }
 
