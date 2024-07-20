@@ -43,8 +43,11 @@ jobs:
       - name: Deploy Angular to GitHub Pages
         uses: bitovi/github-actions-angular-to-github-pages@v1.0.0
         with:
-          path: dist/${{ github.event.repository.name }}
-          build_command: npm run build -- --base-href=/${{ github.event.repository.name }}/ # default
+          path: dist/card-combination-site
+          build_command: npm run build -- --base-href=/card-combination-site/
+#        with:
+#          path: dist/${{ github.event.repository.name }}
+#          build_command: npm run build -- --base-href=/${{ github.event.repository.name }}/ # default
 
       # - name: Deploy to gh pages
       #   run: |
